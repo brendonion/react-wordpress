@@ -1,6 +1,8 @@
 {
+  "presets": [
+    "flow"
+  ],
   "plugins": [
-    "transform-flow-strip-types",
-    "stage-2"
+    "transform-flow-strip-types"
   ]
 }

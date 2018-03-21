@@ -1,8 +1,9 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { POST_MOVIE } from '../constants/reducerTypes';
 
-class Create extends Component {
-
+class Create extends React.Component<void> {
   render() {
     return (
       <div>
@@ -12,4 +13,8 @@ class Create extends Component {
   }
 }
 
-export default Create;
+const mapStateToProps = (state) => ({
+  postMovieState: state[POST_MOVIE]
+});
+
+export default connect(mapStateToProps, null)(Create);
