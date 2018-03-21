@@ -1,13 +1,12 @@
 // @flow
-import React, { Component } from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import * as React from 'react';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import * as Routes from '../constants/routes';
 
 import Home from './Home';
 import Create from './Create';
 
-class App extends Component {
-
+class App extends React.Component<void> {
   render() {
     return (
       <div>

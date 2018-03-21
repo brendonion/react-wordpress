@@ -1,18 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-//import rootReducer from '../reducers/reducer.js';
+import rootReducer from '../reducers/reducers.js';
 
 const loggerMiddleware = createLogger();
 
 const store = process.env.NODE_ENV !== 'production' ? createStore(
-  //rootReducer,
+  rootReducer,
 	applyMiddleware(
 		thunkMiddleware,
 		loggerMiddleware,
 	),
 ) : createStore(
-  //rootReducer,
+  rootReducer,
 	applyMiddleware(
 		thunkMiddleware,
 	),
