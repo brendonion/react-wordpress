@@ -12,3 +12,35 @@
   border-radius: 6px; }
   .movie img {
     object-fit: contain; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 3px 4px 10px #c5c5c5;
+  border-radius: 6px; }
+  .form input, .form textarea {
+    margin: 1rem 0;
+    padding: 0.25rem;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    font-size: 0.9rem;
+    resize: none; }
+  .form .btn--primary {
+    width: 50%;
+    margin: 0 auto; }
+
+.btn, .btn--primary {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 3px 4px 10px #c5c5c5;
+  font-size: 1rem;
+  cursor: pointer; }
+  .btn--primary {
+    background: teal;
+    color: white; }
+    .btn--primary:hover {
+      background: #004d4d; }

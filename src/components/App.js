@@ -4,7 +4,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import * as Routes from '../constants/routes';
 
 import Home from './Home';
-import Create from './Create';
+import CreateForm from './CreateForm';
 
 class App extends React.Component<void> {
   render() {
@@ -13,7 +13,7 @@ class App extends React.Component<void> {
         <BrowserRouter>
           <Switch>
             <Route exact path={Routes.HOME} component={Home} />
-            <Route path={Routes.CREATE} component={Create} />
+            <Route path={Routes.CREATE} component={CreateForm} />
           </Switch>
         </BrowserRouter>
       </div>
