@@ -1,0 +1,19 @@
+.title--centered {
+  margin: 1rem;
+  text-align: center;
+  text-decoration: underline; }
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 3px 4px 10px #c5c5c5;
+  border-radius: 6px; }
+  .movie img {
+    object-fit: contain; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
