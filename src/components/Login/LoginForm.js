@@ -1,5 +1,7 @@
 // @flow
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { SIGNUP } from '../../constants/routes';
 
 type Props = {
   loginState: Object,
@@ -19,26 +21,31 @@ class LoginForm extends React.Component<Props> {
     } = this.props;
 
     return (
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="login-username">User Name:</label>
-        <input 
-          id="login-username" 
-          value={username} 
-          onChange={handleInput('username')} 
-        />
-        <label htmlFor="signup-password">Password:</label>
-        <input 
-          id="login-password" 
-          type="password"
-          value={password} 
-          onChange={handleInput('password')} 
-        />
+      <form className="form__auth-form" onSubmit={handleSubmit}>
+        <div className="field">
+          <label htmlFor="login-username">User Name:</label>
+          <input 
+            id="login-username" 
+            value={username} 
+            onChange={handleInput('username')} 
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="signup-password">Password:</label>
+          <input 
+            id="login-password" 
+            type="password"
+            value={password} 
+            onChange={handleInput('password')} 
+          />
+        </div>
         <button 
           className="btn--primary" 
           type="submit" 
         >
           Submit
         </button>
+        <Link to={SIGNUP}>Sign up</Link>
       </form>
     )
   }

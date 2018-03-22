@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import { logout } from '../actions/authActions';
 import * as Routes from '../constants/routes';
 import Auth from '../handlers/auth';
@@ -27,6 +27,7 @@ class App extends React.Component<Props> {
 
   render() {
     const { user } = this.props;
+    console.log('user: ', user);
 
     return (
       <div>
@@ -44,13 +45,9 @@ class App extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { user } = state.authReducer;
-  
-  return {
-    user
-  }
-}
+const mapStateToProps = (state) => ({
+  user: state.authReducer.user
+});
 
 const mapDispatchToProps = {
   logout,

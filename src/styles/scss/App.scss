@@ -1,4 +1,26 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  background: whitesmoke;
+
+  a, .btn {
+    margin: 0 0.5rem;
+  }
+
+}
+
+a {
+  color: teal;
+
+  &:active {
+    color: darken(teal, 10%);
+  }
+}
+
 .title--centered {
+  color: yellow;
   margin: 1rem;
   text-align: center;
   text-decoration: underline;
@@ -7,13 +29,18 @@
 .movie {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  max-width: $tablet-width;
+  margin: 1rem auto;
   padding: 1rem;
-  box-shadow: 3px 4px 10px #c5c5c5;
+  background: whitesmoke;
+  box-shadow: $box-shadow-glow;
   border-radius: 6px;
   
   img {
-    margin-bottom: 1rem; 
+    width: 100%;
+    max-width: $tablet-width;
+    margin: 0 auto 1rem auto; 
+    border-radius: 8px;
     object-fit: contain; 
   }
 
@@ -26,8 +53,17 @@
   max-width: $tablet-width;
   margin: 1rem auto;
   padding: 1rem;
-  box-shadow: 3px 4px 10px #c5c5c5;
+  background: whitesmoke;
+  box-shadow: $box-shadow-glow;
   border-radius: 6px;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: $tablet-width / 2;
+    margin: 0 auto;
+  }
 
   input, textarea {
     margin: 1rem 0;
@@ -36,10 +72,28 @@
     border: 1px solid lightgray;
     font-size: 0.9rem;
     resize: none;
+    outline: none;
+  }
+
+  input {
+    height: 24px;
+  }
+
+  textarea {
+    height: 150px;
   }
 
   .btn--primary {
     width: 50%;
+    margin: 1rem auto;
+  }
+
+  &__auth-form {
+    @extend .form;
+    padding: 4rem 1rem;
+  }
+
+  a {
     margin: 0 auto;
   }
 
@@ -48,18 +102,29 @@
 .btn {
   padding: 0.5rem;
   border: none;
+  background: white;
   border-radius: 3px;
-  box-shadow: 3px 4px 10px #c5c5c5;
   font-size: 1rem;
+  outline: none;
   cursor: pointer;
 
   &--primary {
     @extend .btn;
-    background: teal;
-    color: white;
+    border: 1px solid teal;
+    color: teal;
 
     &:hover {
-      background: darken(teal, 10%);
+      background: lightgrey;
+    }
+  }
+
+  &--secondary {
+    @extend .btn;
+    border: 1px solid grey;
+    color: grey;
+
+    &:hover {
+      background: lightgrey;
     }
   }
 }

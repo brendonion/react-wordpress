@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 
+import { Loading } from '../reusables';
 import LoginForm from './LoginForm';
 
 type Props = {
@@ -19,9 +20,7 @@ class View extends React.Component<Props> {
     return (
       <div className="form-container--centered">
         <h2 className="title--centered">Login</h2>
-        {this.props.loginState.isFetching &&
-          <div>Loading</div>
-        }
+        <Loading show={this.props.loginState.isFetching} />
         <LoginForm {...loginFormProps} />
       </div>
     )
