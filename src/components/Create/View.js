@@ -5,6 +5,7 @@ import { Loading } from '../reusables';
 import CreateForm from './CreateForm';
 
 type Props = {
+  uploadMediaState: Object,
   postMovieState: Object,
   postMovie: Function,
   title: string,
@@ -20,12 +21,17 @@ type Props = {
 
 class View extends React.Component<Props> {
   render() {
-    const { postMovieState, postMovie, ...formProps } = this.props;
+    const { uploadMediaState, postMovieState, postMovie, ...formProps } = this.props;
 
     return (
       <div>
         <h2 className="title--centered">Create a Star Wars Movie</h2>
-        <Loading show={this.props.postMovieState.isFetching} />
+        <Loading 
+          show={
+            this.props.postMovieState.isFetching ||
+            this.props.uploadMediaState.isFetching
+          } 
+        />
         <CreateForm {...formProps} />
       </div>
     )
