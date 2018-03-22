@@ -23,8 +23,6 @@ type State = {
 }
 
 class Create extends React.Component<Props, State> {
-  
-  static defaultProps = {}
 
   state = {
     title: '',
@@ -44,7 +42,6 @@ class Create extends React.Component<Props, State> {
       file: state.imageFile,
     };
 
-    // TODO: add image file
     this.props.uploadMedia(mediaPayload)
       .then((response) => {
         const payload = {
@@ -78,7 +75,6 @@ class Create extends React.Component<Props, State> {
   }
 
   render() {
-    console.log(this.state);
     return (
       <View 
         {...this.props} 

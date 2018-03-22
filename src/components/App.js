@@ -27,7 +27,6 @@ class App extends React.Component<Props> {
 
   render() {
     const { user } = this.props;
-    console.log('user: ', user);
 
     return (
       <div>

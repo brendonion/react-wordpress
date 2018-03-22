@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import authReducer from './auth';
 import authReducers from './authReducers';
 import movieReducers from './movieReducers';
+import mediaReducers from './mediaReducers';
 import { LOGOUT_SUCCESS } from '../constants/actionTypes';
 
 export function createReducer(reducerFunction, reducerName) {
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
   authReducer,
   ...authReducers,
   ...movieReducers,
+  ...mediaReducers,
 });
 
 const rootReducer = (state, action) => {
