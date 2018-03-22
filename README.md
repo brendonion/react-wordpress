@@ -10,7 +10,7 @@ Created by Brendan Walker
 `npm run dev`
 
 
-### Wordpress React tutorial
+### Wordpress React tutorial:
 1. Create a wordpress account
 2. Download MAMP: [MAMP & MAMP PRO - Downloads](https://www.mamp.info/en/downloads/) (for development purposes)
 3. Follow these MAMP directions: [Installing WordPress Locally on Your Mac With MAMP « WordPress Codex](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP)

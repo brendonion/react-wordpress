@@ -3,12 +3,15 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { postMovie } from '../../actions/movieActions';
 import { uploadMedia } from '../../actions/mediaActions';
-import { POST_MOVIE } from '../../constants/reducerTypes';
+import { POST_MOVIE, UPLOAD_MEDIA } from '../../constants/reducerTypes';
+import { HOME } from '../../constants/routes';
 
 import View from './View';
 
 type Props = {
+  history: Object,
   postMovieState: Object,
+  uploadMediaState: Object,
   postMovie: Function,
   uploadMedia: Function,
 }
@@ -36,7 +39,6 @@ class Create extends React.Component<Props, State> {
   handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const state = {...this.state};
-    
     const mediaPayload = {
       name: state.imageName,
       file: state.imageFile,
@@ -54,7 +56,10 @@ class Create extends React.Component<Props, State> {
           },
           featured_media: response.data.id,
         };
-        this.props.postMovie(payload);
+        this.props.postMovie(payload)
+          .then((response) => {
+            this.props.history.push(HOME);
+          });
       });
   }
 
@@ -88,7 +93,8 @@ class Create extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state) => ({
-  postMovieState: state[POST_MOVIE]
+  postMovieState: state[POST_MOVIE],
+  uploadMediaState: state[UPLOAD_MEDIA],
 });
 
 const mapDispatchToProps = {
