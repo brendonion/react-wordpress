@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import genericReducers from './genericReducers';
-import * as ReducerTypes from '../constants/reducerTypes';
+
+import authReducer from './auth';
+import authReducers from './authReducers';
+import movieReducers from './movieReducers';
+import { LOGOUT_SUCCESS } from '../constants/actionTypes';
 
 export function createReducer(reducerFunction, reducerName) {
   return (state, action) => {
@@ -12,11 +15,13 @@ export function createReducer(reducerFunction, reducerName) {
 }
 
 const appReducer = combineReducers({
-  ...genericReducers,
+  authReducer,
+  ...authReducers,
+  ...movieReducers,
 });
 
 const rootReducer = (state, action) => {
-  if (action.name === ReducerTypes.LOGOUT) {
+  if (action.name === LOGOUT_SUCCESS) {
     state = undefined;
   }
   return appReducer(state, action);

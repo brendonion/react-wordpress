@@ -3,7 +3,10 @@ import * as React from 'react';
 
 import Movie from './Movie';
 
-type Props = Object;
+type Props = {
+  moviesState: Object,
+  getMovies: Function,
+}
 
 class View extends React.Component<Props> {
   render() {
