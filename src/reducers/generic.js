@@ -1,5 +1,3 @@
-import { createReducer } from './reducers';
-import { GET_MOVIES, POST_MOVIE } from '../constants/reducerTypes';
 import * as ActionTypes from '../constants/actionTypes';
 
 const INITIAL_STATE = {
@@ -13,7 +11,7 @@ const INITIAL_STATE = {
   currentPage: 0,
 };
 
-function genericRequest(state = INITIAL_STATE, action) {
+export function genericReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ActionTypes.REQUEST:
       return {
@@ -58,10 +56,3 @@ function genericRequest(state = INITIAL_STATE, action) {
     default: return state
   }
 }
-
-const genericReducers = {
-  [GET_MOVIES]: createReducer(genericRequest, GET_MOVIES),
-  [POST_MOVIE]: createReducer(genericRequest, POST_MOVIE),
-};
-
-export default genericReducers;
