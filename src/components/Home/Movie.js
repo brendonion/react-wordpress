@@ -11,7 +11,7 @@ class Movie extends React.Component<Props> {
     
     return (
       <div className="movie">
-        <img src={movie._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url} alt="movie cover" />
+        <img src={movie._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt="movie cover" />
         <h4>Title: {movie.title.rendered}</h4>
         <p><strong>Release Year:</strong> {movie.acf.release_year}</p>
         <p><strong>Rating:</strong> {movie.acf.rating}</p>

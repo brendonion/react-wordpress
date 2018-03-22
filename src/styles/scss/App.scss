@@ -26,8 +26,9 @@ a {
 }
 
 .title--centered {
-  color: yellow;
   margin: 1rem;
+  color: yellow;
+  font-weight: 500;
   text-align: center;
   text-decoration: underline;
 }
@@ -38,16 +39,16 @@ a {
   max-width: $tablet-width;
   margin: 1rem auto;
   padding: 1rem;
-  border: 2px solid teal;
   background: whitesmoke;
   box-shadow: $box-shadow-glow;
-  border-radius: 6px;
+  border-radius: 3px;
   
   img {
     width: 100%;
     max-width: $tablet-width;
+    max-height: 450px;
     margin: 0 auto 1rem auto; 
-    border-radius: 8px;
+    border-radius: 3px;
     object-fit: contain; 
   }
 
@@ -60,10 +61,9 @@ a {
   max-width: $tablet-width;
   margin: 1rem auto;
   padding: 1rem;
-  border: 2px solid teal;
   background: whitesmoke;
   box-shadow: $box-shadow-glow;
-  border-radius: 6px;
+  border-radius: 3px;
 
   .field {
     display: flex;
@@ -71,24 +71,25 @@ a {
     width: 50%;
     min-width: $tablet-width / 2;
     margin: 0 auto;
-  }
+    
+    input, textarea {
+      margin: 1rem 0;
+      padding: 0.25rem;
+      border-radius: 3px;
+      border: 1px solid lightgray;
+      font-size: 0.9rem;
+      resize: none;
+      outline: none;
+    }
+  
+    input {
+      height: 24px;
+    }
+  
+    textarea {
+      height: 150px;
+    }
 
-  input, textarea {
-    margin: 1rem 0;
-    padding: 0.25rem;
-    border-radius: 3px;
-    border: 1px solid lightgray;
-    font-size: 0.9rem;
-    resize: none;
-    outline: none;
-  }
-
-  input {
-    height: 24px;
-  }
-
-  textarea {
-    height: 150px;
   }
 
   .btn--primary {
@@ -148,3 +149,52 @@ a {
   cursor: pointer;
 }
 
+.upload-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: $tablet-width / 2;
+  margin: 0 auto;
+
+  &__field {
+    height: 75px;
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+  }
+
+  &__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+    top: 1.5rem;
+    bottom: 0;
+    right: 1rem;
+    height: 20px;
+    width: 150px;
+    margin: auto 0;
+    color: black;
+    background: white;
+    border-radius: 3px;
+    text-align: center;
+
+    &:hover {
+      background: lightgray;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}

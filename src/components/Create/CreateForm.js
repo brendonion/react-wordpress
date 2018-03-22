@@ -6,8 +6,11 @@ type Props = {
   releaseYear: string,
   rating: string,
   description: string,
+  imageName: string,
+  imageFile: Object | null,
   handleInput: Function,
   handleSubmit: Function,
+  handleImageUpload: Function,
 }
 
 class CreateForm extends React.Component<Props> {
@@ -17,8 +20,11 @@ class CreateForm extends React.Component<Props> {
       releaseYear,
       rating,
       description,
+      imageName,
+      imageFile,
       handleInput,
       handleSubmit,
+      handleImageUpload,
     } = this.props;
 
     return (
@@ -59,6 +65,28 @@ class CreateForm extends React.Component<Props> {
             value={description}
             onChange={handleInput('description')} 
           />
+        </div>
+        <div className="upload-container">
+          <label htmlFor="new-logo">Image:</label>
+          <input 
+            className="upload-container__field"
+            placeholder="No image uploaded"
+            value={
+              imageName.length > 25 
+              ? imageName.slice(0, 20) + '..' + imageName.slice(imageName.length - 4, imageName.length) 
+              : imageName
+            }
+            disabled
+          />
+          <div className="upload-container__upload btn--secondary">
+            <span>Upload New Image</span>
+            <input 
+              id="new-logo"
+              type="file" 
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+          </div>
         </div>
         <button 
           className="btn--primary" 
