@@ -1,6 +1,10 @@
 // base urls
 export const BASE_URL = 'http://localhost:8888/wordpresstest/wp-json';
 export const WP_V2 = '/wp/v2';
+export const ACF = '/acf/v3';
+
+// media
+export const MEDIA = '/media';
 
 // movies
 export const MOVIES_EMBED = '/movies?_embed';

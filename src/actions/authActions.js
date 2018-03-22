@@ -48,7 +48,7 @@ export const login = (username: string, password: string) => (dispatch: Function
     username,
     password
   }).then((response) => {
-    dispatch(loginSuccess(response.data, response.data.user_email));
+    dispatch(loginSuccess(response.data, response.data.user_display_name));
     Auth.onSignedIn(response);
     return response;
   }).catch((errors) => {

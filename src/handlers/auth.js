@@ -44,7 +44,7 @@ class Auth {
     const localData = JSON.parse(localStorage.getItem('auth'));
     if (localData) {
       axios.defaults.headers.common['Authorization'] = "Bearer " + localData.token;
-      user = {...localData.user_email};
+      user = localData.user_display_name;
     } 
   
     return user;
@@ -59,7 +59,6 @@ class Auth {
   onSignedIn(response) {
     localStorage.setItem('auth', JSON.stringify(response.data));
     axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.token;
-    
   }
   
 

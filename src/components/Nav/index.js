@@ -6,6 +6,7 @@ import { logout } from '../../actions/authActions';
 import View from './View';
 
 type Props = {
+  user: string,
   logout: Function,
 }
 
@@ -17,8 +18,12 @@ class Nav extends React.Component<Props> {
   }
 }
 
+const mapStateToProps = (state) => ({
+  user: state.authReducer.user
+});
+
 const mapDispatchToProps = {
   logout
 };
 
-export default connect(null, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
