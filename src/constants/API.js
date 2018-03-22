@@ -8,3 +8,6 @@ export const MOVIES = '/movies';
 
 // authorization
 export const USERS = '/users'; 
+export const JWT = '/jwt-auth/v1';
+export const TOKEN = '/token';
+export const VALIDATE = '/token/validate';

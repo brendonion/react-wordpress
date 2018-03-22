@@ -2,19 +2,17 @@
 import * as React from 'react';
 
 type Props = {
-  signupState: Object,
+  loginState: Object,
   handleInput: Function,
   handleSubmit: Function,
   username: string,
-  email: string,
   password: string,
 }
 
-class SignupForm extends React.Component<Props> {
+class LoginForm extends React.Component<Props> {
   render() {
     const {
       username,
-      email,
       password,
       handleInput,
       handleSubmit,
@@ -22,22 +20,15 @@ class SignupForm extends React.Component<Props> {
 
     return (
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="signup-username">User Name:</label>
+        <label htmlFor="login-username">User Name:</label>
         <input 
-          id="signup-username" 
+          id="login-username" 
           value={username} 
           onChange={handleInput('username')} 
         />
-        <label htmlFor="signup-email">Email:</label>
-        <input 
-          id="signup-email" 
-          type="email"
-          value={email} 
-          onChange={handleInput('email')} 
-        />
         <label htmlFor="signup-password">Password:</label>
         <input 
-          id="signup-password" 
+          id="login-password" 
           type="password"
           value={password} 
           onChange={handleInput('password')} 
@@ -53,4 +44,4 @@ class SignupForm extends React.Component<Props> {
   }
 }
 
-export default SignupForm;
+export default LoginForm;
