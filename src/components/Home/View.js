@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 
+import { Loading } from '../reusables';
 import Movie from './Movie';
 
 type Props = {
@@ -15,10 +16,8 @@ class View extends React.Component<Props> {
     return (
       <div>
         <h2 className="title--centered">Star Wars Movies</h2>
-        {isFetching &&
-          <div>Loading</div>
-        }
-        {success && data.length && data.map((movie) => (
+        <Loading show={isFetching} />
+        {success && data.map((movie) => (
           <Movie movie={movie} key={movie.id} />
         ))}
       </div>

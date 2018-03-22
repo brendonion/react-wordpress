@@ -12,7 +12,7 @@ import {
 import { AUTH, SIGNUP } from '../constants/reducerTypes';
 import * as API from '../constants/API';
 
-export const loginSuccess = (data, user) => ({
+export const loginSuccess = (data: Object, user: Object) => ({
   name: AUTH,
   type: LOGIN_SUCCESS,
   data,
@@ -24,7 +24,7 @@ export const loginRequest = () => ({
   type: LOGIN_REQUEST,
 });
 
-export const loginError = (errorMessage) => ({
+export const loginError = (errorMessage: string) => ({
   name: AUTH,
   type: LOGIN_ERROR,
   errorMessage
@@ -35,42 +35,29 @@ export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESS
 });
 
-export const userProfileChange = (user) => ({
+export const userProfileChange = (user: Object) => ({
   name: AUTH,
   type: USER_PROFILE_CHANGE,
   user
 });
 
-export const login = (requestData) => (dispatch) => {
+export const login = (username: string, password: string) => (dispatch: Function) => {
   dispatch(loginRequest());
 
-
-  // Auth.onSignedIn(fakeResponse);
-  // dispatch(loginSuccess(fakeResponse.data, fakeResponse.data.user_data));
-  
-  // const { email, password } = requestData;
-  // axios.post(API.BASE_URL + API.LOGIN, {
-  //   email,
-  //   password
-  // }).then(response => {
-  //   const successful = Handlers.handleResponse(response);
-  //   if (successful) {
-  //     Auth.onSignedIn(response);
-  //     dispatch(loginSuccess(response.data, response.data.user_data));
-  //   } else {
-  //     dispatch(loginError(response));
-      
-  //     const err = { response };
-  //     dispatch(toastErrorMessage(err));
-  //   }
-    
-  // }).catch(err => {
-  //   dispatch(loginError(err));
-  //   dispatch(toastErrorMessage(err));
-  // });
+  return axios.post(API.BASE_URL + API.JWT + API.TOKEN, {
+    username,
+    password
+  }).then((response) => {
+    dispatch(loginSuccess(response.data, response.data.user_email));
+    Auth.onSignedIn(response);
+    return response;
+  }).catch((errors) => {
+    dispatch(loginError(errors));
+    return Promise.reject(errors);
+  });
 }
 
-export const logout = () => (dispatch) => {
+export const logout = () => (dispatch: Function) => {
   Auth.onSignedOut();
   dispatch(logoutSuccess());
 }
@@ -78,9 +65,13 @@ export const logout = () => (dispatch) => {
 export const signup = (payload: Object) =>  (dispatch: Function) => {
   const reducer = SIGNUP;
   dispatch(request(reducer));
-  return axios.post(API.BASE_URL + API.WP_V2 + API.USERS, payload)
+  return axios.post(API.BASE_URL + API.WP_V2 + API.USERS, {
+    ...payload,
+    roles: ['subscriber']
+  })
     .then((response) => {
       dispatch(success(reducer, response.data));
+      dispatch(login(payload.username, payload.password));
       return response;
     })
     .catch((errors) => {

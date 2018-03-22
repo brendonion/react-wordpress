@@ -5,12 +5,9 @@ import axios from 'axios';
 */
 
 class Auth {
-  constructor() {
-    if(!Auth.instance) {
-      this._auth = {
-        
-      };
 
+  constructor() {
+    if (!Auth.instance) {
       Auth.instance = this;
     }
     return Auth.instance;
@@ -45,9 +42,9 @@ class Auth {
     let user = null;
     
     const localData = JSON.parse(localStorage.getItem('auth'));
-    if(localData) {
-      axios.defaults.headers.common['Authorization'] = "Bearer " + localData.access_token;
-      user = {...localData.user_data};
+    if (localData) {
+      axios.defaults.headers.common['Authorization'] = "Bearer " + localData.token;
+      user = {...localData.user_email};
     } 
   
     return user;
@@ -61,7 +58,8 @@ class Auth {
    */
   onSignedIn(response) {
     localStorage.setItem('auth', JSON.stringify(response.data));
-    axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.access_token;
+    axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.token;
+    
   }
   
 

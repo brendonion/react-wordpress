@@ -23,34 +23,42 @@ class CreateForm extends React.Component<Props> {
 
     return (
       <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="movie-title">Title:</label>
-        <input 
-          id="movie-title" 
-          value={title} 
-          onChange={handleInput('title')} 
-        />
-        <label htmlFor="movie-release">Release Year:</label>
-        <input 
-          id="movie-release" 
-          type="number"
-          maxLength="4"
-          value={releaseYear} 
-          onChange={handleInput('releaseYear')} 
-        />
-        <label htmlFor="movie-rating">Rating:</label>
-        <input 
-          id="movie-rating" 
-          type="number"
-          maxLength="1"
-          value={rating} 
-          onChange={handleInput('rating')} 
-        />
-        <label htmlFor="movie-description">Description:</label>
-        <textarea 
-          id="movie-description" 
-          value={description}
-          onChange={handleInput('description')} 
-        />
+        <div className="field">
+          <label htmlFor="movie-title">Title:</label>
+          <input 
+            id="movie-title" 
+            value={title} 
+            onChange={handleInput('title')} 
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="movie-release">Release Year:</label>
+          <input 
+            id="movie-release" 
+            type="number"
+            maxLength="4"
+            value={releaseYear} 
+            onChange={handleInput('releaseYear')} 
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="movie-rating">Rating:</label>
+          <input 
+            id="movie-rating" 
+            type="number"
+            maxLength="1"
+            value={rating} 
+            onChange={handleInput('rating')} 
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="movie-description">Description:</label>
+          <textarea 
+            id="movie-description" 
+            value={description}
+            onChange={handleInput('description')} 
+          />
+        </div>
         <button 
           className="btn--primary" 
           type="submit" 

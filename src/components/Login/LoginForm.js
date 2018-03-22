@@ -1,22 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { LOGIN } from '../../constants/routes';
+import { SIGNUP } from '../../constants/routes';
 
 type Props = {
-  signupState: Object,
+  loginState: Object,
   handleInput: Function,
   handleSubmit: Function,
   username: string,
-  email: string,
   password: string,
 }
 
-class SignupForm extends React.Component<Props> {
+class LoginForm extends React.Component<Props> {
   render() {
     const {
       username,
-      email,
       password,
       handleInput,
       handleSubmit,
@@ -25,26 +23,17 @@ class SignupForm extends React.Component<Props> {
     return (
       <form className="form__auth-form" onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="signup-username">User Name:</label>
+          <label htmlFor="login-username">User Name:</label>
           <input 
-            id="signup-username" 
+            id="login-username" 
             value={username} 
             onChange={handleInput('username')} 
           />
         </div>
         <div className="field">
-          <label htmlFor="signup-email">Email:</label>
-          <input 
-            id="signup-email" 
-            type="email"
-            value={email} 
-            onChange={handleInput('email')} 
-          />
-        </div>
-        <div className="field">
           <label htmlFor="signup-password">Password:</label>
           <input 
-            id="signup-password" 
+            id="login-password" 
             type="password"
             value={password} 
             onChange={handleInput('password')} 
@@ -56,10 +45,10 @@ class SignupForm extends React.Component<Props> {
         >
           Submit
         </button>
-        <Link to={LOGIN}>Login</Link>
+        <Link to={SIGNUP}>Sign up</Link>
       </form>
     )
   }
 }
 
-export default SignupForm;
+export default LoginForm;

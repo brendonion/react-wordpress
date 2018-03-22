@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
-import SignupForm from './SignupForm';
 
+import { Loading } from '../reusables';
+import SignupForm from './SignupForm';
 
 type Props = {
   signupState: Object,
@@ -15,15 +16,13 @@ type Props = {
 
 class View extends React.Component<Props> {
   render() {
-    const { signup, ...signupProps } = this.props;
+    const { signup, ...signupFormProps } = this.props;
 
     return (
       <div>
-        <h2 className="title--centered">Star Wars Movies</h2>
-        {this.props.signupState.isFetching &&
-          <div>Loading</div>
-        }
-        <SignupForm {...signupProps} />
+        <h2 className="title--centered">Sign Up</h2>
+        <Loading show={this.props.signupState.isFetching} />
+        <SignupForm {...signupFormProps} />
       </div>
     )
   }
