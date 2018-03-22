@@ -22,14 +22,15 @@ Created by Brendan Walker
 * Endpoints: http://localhost:8888/wordpresstest/wp-json/…
 
 
-Needed plugins for Wordpress (using v4.9.4):
+####Needed plugins for Wordpress (using v4.9.4):
 * ACF to REST API
 * Advanced Custom Fields
 * Custom Post Type UI
 * JWT Authentication for WP REST API
 
+####Source Code Edits:
+>insert into `[project-root]/wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php` (around line 48) to allow any user to create a subscriber account
 
-insert into `[project-root]/wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php` (around line 48) to allow any user to create a subscriber account
 ```
 register_rest_route( 'wp/v2', '/users', array(
 			array(
@@ -58,7 +59,8 @@ register_rest_route( 'wp/v2', '/users', array(
 		) );
 ```
 
-Insert into `[project-root]/functions.php` at the top (around line 10):
+>Insert into `[project-root]/functions.php` at the top (around line 10):
+
 ```
 add_filter( 'acf/rest_api/key', function( $key, $request, $type ) {
 	return 'acf_fields';
