@@ -9,6 +9,12 @@
     margin: 0 0.5rem;
   }
 
+  &__options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 a {
@@ -32,6 +38,7 @@ a {
   max-width: $tablet-width;
   margin: 1rem auto;
   padding: 1rem;
+  border: 2px solid teal;
   background: whitesmoke;
   box-shadow: $box-shadow-glow;
   border-radius: 6px;
@@ -53,6 +60,7 @@ a {
   max-width: $tablet-width;
   margin: 1rem auto;
   padding: 1rem;
+  border: 2px solid teal;
   background: whitesmoke;
   box-shadow: $box-shadow-glow;
   border-radius: 6px;
@@ -127,5 +135,16 @@ a {
       background: lightgrey;
     }
   }
+}
+
+.logout-btn {
+  background: url('../../images/logout.png') no-repeat center;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 

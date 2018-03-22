@@ -81,6 +81,10 @@
   background: whitesmoke; }
   .nav a, .nav .btn, .nav .btn--primary, .nav .btn--secondary {
     margin: 0 0.5rem; }
+  .nav__options {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 a {
   color: teal; }
@@ -99,8 +103,9 @@ a {
   max-width: 768px;
   margin: 1rem auto;
   padding: 1rem;
+  border: 2px solid teal;
   background: whitesmoke;
-  box-shadow: 2px 1px 10px #c5c5c5;
+  box-shadow: 1px 2px 10px 0px #c5c5c5;
   border-radius: 6px; }
   .movie img {
     width: 100%;
@@ -116,8 +121,9 @@ a {
   max-width: 768px;
   margin: 1rem auto;
   padding: 1rem;
+  border: 2px solid teal;
   background: whitesmoke;
-  box-shadow: 2px 1px 10px #c5c5c5;
+  box-shadow: 1px 2px 10px 0px #c5c5c5;
   border-radius: 6px; }
   .form .field, .form__auth-form .field {
     display: flex;
@@ -163,6 +169,16 @@ a {
     color: grey; }
     .btn--secondary:hover {
       background: lightgrey; }
+
+.logout-btn {
+  background: url("../../images/logout.png") no-repeat center;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  margin: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer; }
 
 * {
   margin: 0;

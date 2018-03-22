@@ -28,6 +28,7 @@ class SignupForm extends React.Component<Props> {
           <label htmlFor="signup-username">User Name:</label>
           <input 
             id="signup-username" 
+            autoFocus
             value={username} 
             onChange={handleInput('username')} 
           />

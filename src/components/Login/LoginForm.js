@@ -26,12 +26,13 @@ class LoginForm extends React.Component<Props> {
           <label htmlFor="login-username">User Name:</label>
           <input 
             id="login-username" 
-            value={username} 
+            autoFocus
+            value={username}
             onChange={handleInput('username')} 
           />
         </div>
         <div className="field">
-          <label htmlFor="signup-password">Password:</label>
+          <label htmlFor="login-password">Password:</label>
           <input 
             id="login-password" 
             type="password"

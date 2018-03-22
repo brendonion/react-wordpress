@@ -27,6 +27,7 @@ class CreateForm extends React.Component<Props> {
           <label htmlFor="movie-title">Title:</label>
           <input 
             id="movie-title" 
+            autoFocus
             value={title} 
             onChange={handleInput('title')} 
           />
